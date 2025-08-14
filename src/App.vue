@@ -1,47 +1,32 @@
-<script setup>
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
-</script>
-
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
+  <div class="w-1/2 mx-auto p-4">
+    <div>Name: {{ person.name }}</div>
+    <div>Second name: {{ person.secondName }}</div>
+    <div>Age: {{ person.age }}</div>
+    <div>
+      <span @click="sayOne(123)" class="text-xl font-bold cursor-pointer">Click</span>
     </div>
-  </header>
-
-  <main>
-    <TheWelcome />
-  </main>
+  </div>
 </template>
 
-<style scoped>
-header {
-  line-height: 1.5;
-}
+<script>
+export default {
+  name: "Our App",
+  data() {
+    return {
+      person: {
+        name: "Ivan",
+        secondName: "Ivanov",
+        age: 20,
+      },
+    };
+  },
+  methods: {
+    sayOne(num) {
+      console.log(num);
+    },
+  },
+};
+</script>
 
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-}
-</style>
+<style scoped></style>
